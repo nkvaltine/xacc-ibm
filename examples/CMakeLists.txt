@@ -28,9 +28,24 @@
 #   Initial API and implementation - Alex McCaskey
 #
 #**********************************************************************************/
-add_executable(teleport_scaffold_ibm teleport_scaffold_ibm.cpp)
-target_link_libraries(teleport_scaffold_ibm ${Boost_LIBRARIES} ${XACC_LIBRARIES})
-   
+cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
+
+set(CMAKE_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 11)
+message(STATUS "C++ version ${CXX_STANDARD} configured.")
+
+
+find_package(XACC REQUIRED)
+
+include_directories(${XACC_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
+
+
+
+
+add_executable(teleport_quil_ibm teleport_quil_ibm.cpp)
+target_link_libraries(teleport_quil_ibm ${Boost_LIBRARIES} ${XACC_LIBRARIES})
+
 add_executable(qft_scaffold_ibm qft_scaffold_ibm.cpp)
 target_link_libraries(qft_scaffold_ibm ${Boost_LIBRARIES} ${XACC_LIBRARIES})
    
@@ -40,6 +55,8 @@ target_link_libraries(h2_exp_vals_scaffold_ibm ${Boost_LIBRARIES} ${XACC_LIBRARI
 add_executable(h2_exp_vals_scaffold_ibm_multi_exec h2_exp_vals_scaffold_ibm_multi_exec.cpp)
 target_link_libraries(h2_exp_vals_scaffold_ibm_multi_exec ${Boost_LIBRARIES} ${XACC_LIBRARIES})
    
+   
+     
 #install(TARGETS teleport_scaffold_ibm DESTINATION examples)
   
 #install(TARGETS h2_exp_vals_scaffold_ibm DESTINATION examples)
