@@ -1,0 +1,6 @@
+{
+  "bundle.symbolic_name" : "xacc_ibm_openqasmcompiler",
+  "bundle.activator" : true,
+  "bundle.name" : "XACC IBM OpenQasm Compiler",
+  "bundle.description" : "This bundle provides an OpenQasm Compiler for Gate Model QC."
+}
